@@ -53,7 +53,7 @@ const run = (args, options = {}) => {
 const scratch = mkdtempSync(join(tmpdir(), 'muxr-plugin-build-'));
 process.on('exit', () => rmSync(scratch, { recursive: true, force: true }));
 let tarball = process.env.MUXR_PLUGIN_CLI_TARBALL?.trim();
-let expected = CLI_SHA256;
+let expected = CLI_SHA256.trim().toLowerCase();
 if (tarball) {
     expected = process.env.MUXR_PLUGIN_CLI_SHA256?.trim().toLowerCase() ?? '';
     if (!expected) fail('MUXR_PLUGIN_CLI_TARBALL needs MUXR_PLUGIN_CLI_SHA256');
