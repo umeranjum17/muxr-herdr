@@ -64,7 +64,7 @@ Get the app from [trymuxr.com/downloads](https://trymuxr.com/downloads) (Android
 | | |
 |---|---|
 | **Panes** | setup, pair, devices, doctor, service, self-host relay, logs, uninstall, screen-sharing approval |
-| **Actions** | start, stop, restart, status, sync agent integrations, update, put `muxr` on PATH, split right, split down |
+| **Actions** | start, stop, restart, status, sync agent integrations, update, put `muxr` on PATH, split right, split down, uninstall, screen-sharing approval |
 
 Run an action with `herdr plugin action invoke <action> --plugin muxr.control`, or open a pane with `herdr plugin pane open --plugin muxr.control --entrypoint <pane>`. The **Put muxr on PATH** action links `muxr` into `~/.local/bin`, so your shell and your agents can run `muxr name` and `muxr share`.
 
