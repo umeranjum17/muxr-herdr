@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://herdr.dev/plugins/"><img alt="Herdr plugin" src="https://img.shields.io/badge/herdr-plugin-111?style=flat" /></a>
-  <a href="https://www.npmjs.com/package/@trymuxr/cli"><img alt="npm" src="https://img.shields.io/npm/v/@trymuxr/cli?style=flat&label=npm" /></a>
+  <a href="https://www.npmjs.com/package/@trymuxr/cli"><img alt="npm 0.3.0" src="https://img.shields.io/badge/npm-0.3.0-CB3837?style=flat&logo=npm&logoColor=white" /></a>
   <a href="https://github.com/umeranjum17/muxr-herdr/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/umeranjum17/muxr-herdr/ci.yml?style=flat&branch=main" /></a>
   <a href="LICENSE"><img alt="Apache 2.0" src="https://img.shields.io/badge/license-Apache--2.0-666?style=flat" /></a>
 </p>
@@ -53,24 +53,18 @@ It detects the machine, walks you through how your phone should reach it (Tailsc
 
 **3. Pair your phone**
 
-Scan the one-use QR with the muxr app, or open the one-time link in a browser, then check that both screens show the same two words before you approve.
-
-<p align="center">
-  <picture>
-    <source srcset="docs/assets/phone-pair-night.webp" media="(prefers-color-scheme: dark)" />
-    <img src="docs/assets/phone-pair-day.webp" alt="The browser asking to compare the two words moon acorn with the computer before pairing" width="240" />
-  </picture>
-</p>
+Scan the one-use QR with the muxr app, or open the one-time link in a browser, then check that both screens show the same two words before you approve. The pairing card is the first shot under **On the phone** below.
 
 ```text
 “Browser” wants to pair with this computer.
 
-  Compare these words on the phone:  moon acorn
+  Compare these words on the phone:  diamond cliff
 
 Only approve if the words match. Approve this device? (y/N) y
   ✓ paired and verified Browser
 
-  ok    muxr versions      CLI 0.3.0 · host 0.3.0 · Herdr plugin 0.3.0 (umeranjum17/muxr-herdr@v0.3.0)
+  ok    muxr versions      CLI 0.3.0 · host 0.3.0
+        Herdr plugin 0.3.0 (umeranjum17/muxr-herdr@v0.3.0)
 ```
 
 Get the app from [trymuxr.com/downloads](https://trymuxr.com/downloads) (Android APK, Google Play testing, iOS TestFlight), or pair a browser for eight hours. Pair more devices later from the **Pair muxr** pane.
@@ -85,27 +79,15 @@ Always install a release tag. Each tag is one muxr release: the install download
 
 ## On the phone
 
-Once paired, your phone is the same workspace — real captures, demo data:
+Once paired, your phone is the same workspace. Four captures from a demo machine, in order:
 
 <p align="center">
-  <picture>
-    <source srcset="docs/assets/phone-home-night.webp" media="(prefers-color-scheme: dark)" />
-    <img src="docs/assets/phone-home-day.webp" alt="muxr home on a phone: the machine connected, one live Claude Code agent and its shop workspace" width="250" />
-  </picture>
-  <picture>
-    <source srcset="docs/assets/phone-terminal-night.webp" media="(prefers-color-scheme: dark)" />
-    <img src="docs/assets/phone-terminal-day.webp" alt="An agent's live terminal on the phone, with the tab row, key row and prompt box" width="250" />
-  </picture>
+  <img src="docs/assets/phone-pair.webp" alt="01 Pair once — the phone showing the two words diamond cliff to compare with the computer" width="250" />
+  <img src="docs/assets/phone-terminal.webp" alt="02 Check the real run — an agent's live terminal on the phone, with the tab row, key row and prompt box" width="250" />
 </p>
 <p align="center">
-  <picture>
-    <source srcset="docs/assets/phone-agent-night.webp" media="(prefers-color-scheme: dark)" />
-    <img src="docs/assets/phone-agent-day.webp" alt="Prompting the agent from the phone like you're at the desk" width="250" />
-  </picture>
-  <picture>
-    <source srcset="docs/assets/phone-files-night.webp" media="(prefers-color-scheme: dark)" />
-    <img src="docs/assets/phone-files-day.webp" alt="Reading the code an agent is working on, from the phone" width="250" />
-  </picture>
+  <img src="docs/assets/phone-agent.webp" alt="03 Pick up the thread — prompting the agent from the phone like you're at the desk" width="250" />
+  <img src="docs/assets/phone-files.webp" alt="04 Look at the code — reading the code an agent is working on, from the phone" width="250" />
 </p>
 
 ## What you get in Herdr
