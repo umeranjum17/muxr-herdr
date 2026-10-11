@@ -15,35 +15,51 @@
 </p>
 
 <p align="center">
-  <picture><source srcset="docs/assets/pwa-home.webp" type="image/webp"><img src="docs/assets/pwa-home.jpg" alt="muxr's home on a phone-sized browser right after pairing from the plugin: the machine connected, one live Claude Code agent and its shop workspace" width="260" /></picture>
-  <picture><source srcset="docs/assets/pwa-agent.webp" type="image/webp"><img src="docs/assets/pwa-agent.jpg" alt="The first agent started from the phone: Claude Code's live terminal with the tab row, key row and prompt box" width="260" /></picture>
+  <picture>
+    <source srcset="docs/assets/hero-plugin-night.webp" media="(prefers-color-scheme: dark)" />
+    <img src="docs/assets/hero-plugin-day.webp" alt="The muxr Setup pane running inside Herdr: the muxr wordmark, 'Setup step 2 of 5', and the recommended phone-connection route" width="880" />
+  </picture>
 </p>
 
-## Download and install
+<p align="center">
+  <sub>The <b>Setup</b> pane inside Herdr. It detects the machine, connects your phone and starts the service — and changes nothing until you choose <b>Apply setup</b>.</sub>
+</p>
 
-You need [Herdr](https://herdr.dev) 0.9.1 or newer and [Node.js 22 or newer](https://nodejs.org/) on Linux or macOS. Install the plugin from Herdr, then open its setup pane:
+## Why muxr in Herdr
+
+Herdr runs the agents; muxr puts them in your pocket. Start a run on the desktop, then step away and keep prompting the same live terminal from your phone — same session, same keys, same output.
+
+- **Every agent, one screen.** Your phone lists every agent Herdr runs, grouped by the workspace it lives in.
+- **The real terminal.** Open any agent and type into its actual TTY — the tab row, key row and prompt box are the ones you already use.
+- **Nothing exposed publicly.** Pairing is a one-use QR (or a one-time link) with a two-word check; the recommended route serves over your tailnet, not the open internet.
+
+## Install
+
+Three steps on Linux or macOS. You need [Herdr](https://herdr.dev) 0.9.1 or newer and [Node.js 22 or newer](https://nodejs.org/).
+
+**1. Install the plugin into Herdr**
 
 ```bash
 herdr plugin install umeranjum17/muxr-herdr --ref v0.3.0
+```
+
+**2. Open the Setup pane**
+
+```bash
 herdr plugin pane open --plugin muxr.control --entrypoint setup
 ```
 
-| Release | Installs | CLI tarball sha256 |
-|---|---|---|
-| [`v0.3.0`](https://github.com/umeranjum17/muxr-herdr/releases) | [`@trymuxr/cli` 0.3.0](https://www.npmjs.com/package/@trymuxr/cli) | pinned at release |
+It detects the machine, walks you through how your phone should reach it (Tailscale Serve is the recommended route), and starts the muxr service. Nothing changes until you choose **Apply setup**.
 
-Every release is listed on [the releases page](https://github.com/umeranjum17/muxr-herdr/releases); install the newest tag with `--ref`.
+**3. Pair your phone**
 
-Always install a release tag. Each tag is one muxr release: the install downloads `@trymuxr/cli` at exactly that version, checks it against the sha256 pinned in [build.mjs](build.mjs), and installs it into the plugin folder with install scripts turned off. Nothing is built from source, and a branch or bare commit is refused.
-
-The setup pane walks you through the rest: pick how your phone reaches this computer, start the muxr service, and pair. It changes nothing until you choose **Apply setup**.
-
-## Pair your phone
-
-Setup ends by pairing a device. Scan the one-use QR with the muxr app, or open the one-time link in a browser, then check that both screens show the same two words before you approve.
+Scan the one-use QR with the muxr app, or open the one-time link in a browser, then check that both screens show the same two words before you approve.
 
 <p align="center">
-  <picture><source srcset="docs/assets/pwa-pair.webp" type="image/webp"><img src="docs/assets/pwa-pair.jpg" alt="The browser asking to compare the two words moon acorn with the computer before pairing" width="260" /></picture>
+  <picture>
+    <source srcset="docs/assets/phone-pair-night.webp" media="(prefers-color-scheme: dark)" />
+    <img src="docs/assets/phone-pair-day.webp" alt="The browser asking to compare the two words moon acorn with the computer before pairing" width="240" />
+  </picture>
 </p>
 
 ```text
@@ -59,7 +75,49 @@ Only approve if the words match. Approve this device? (y/N) y
 
 Get the app from [trymuxr.com/downloads](https://trymuxr.com/downloads) (Android APK, Google Play testing, iOS TestFlight), or pair a browser for eight hours. Pair more devices later from the **Pair muxr** pane.
 
+### Why a release tag
+
+| Release | Installs | CLI tarball sha256 |
+|---|---|---|
+| [`v0.3.0`](https://github.com/umeranjum17/muxr-herdr/releases) | [`@trymuxr/cli` 0.3.0](https://www.npmjs.com/package/@trymuxr/cli) | pinned at release |
+
+Always install a release tag. Each tag is one muxr release: the install downloads `@trymuxr/cli` at exactly that version, checks it against the sha256 pinned in [build.mjs](build.mjs), and installs it into the plugin folder with install scripts turned off. Nothing is built from source, and a branch or bare commit is refused. Every release is listed on [the releases page](https://github.com/umeranjum17/muxr-herdr/releases); install the newest tag with `--ref`.
+
+## On the phone
+
+Once paired, your phone is the same workspace — real captures, demo data:
+
+<p align="center">
+  <picture>
+    <source srcset="docs/assets/phone-home-night.webp" media="(prefers-color-scheme: dark)" />
+    <img src="docs/assets/phone-home-day.webp" alt="muxr home on a phone: the machine connected, one live Claude Code agent and its shop workspace" width="250" />
+  </picture>
+  <picture>
+    <source srcset="docs/assets/phone-terminal-night.webp" media="(prefers-color-scheme: dark)" />
+    <img src="docs/assets/phone-terminal-day.webp" alt="An agent's live terminal on the phone, with the tab row, key row and prompt box" width="250" />
+  </picture>
+</p>
+<p align="center">
+  <picture>
+    <source srcset="docs/assets/phone-agent-night.webp" media="(prefers-color-scheme: dark)" />
+    <img src="docs/assets/phone-agent-day.webp" alt="Prompting the agent from the phone like you're at the desk" width="250" />
+  </picture>
+  <picture>
+    <source srcset="docs/assets/phone-files-night.webp" media="(prefers-color-scheme: dark)" />
+    <img src="docs/assets/phone-files-day.webp" alt="Reading the code an agent is working on, from the phone" width="250" />
+  </picture>
+</p>
+
 ## What you get in Herdr
+
+The plugin installs as `muxr.control`:
+
+<p align="center">
+  <picture>
+    <source srcset="docs/assets/plugin-list-night.webp" media="(prefers-color-scheme: dark)" />
+    <img src="docs/assets/plugin-list-day.webp" alt="herdr plugin list showing muxr.control enabled from github:umeranjum17/muxr-herdr@v0.3.0" width="760" />
+  </picture>
+</p>
 
 | | |
 |---|---|
@@ -98,7 +156,7 @@ The npm install ([`@trymuxr/cli`](https://www.npmjs.com/package/@trymuxr/cli)) s
 A muxr release that should reach Herdr needs a matching tag here:
 
 1. Set `version` in [herdr-plugin.toml](herdr-plugin.toml) to the published `@trymuxr/cli` version, and copy any changed actions and panes from muxr's `resources/control/herdr-plugin.toml`, pointing them at `./node_modules/@trymuxr/cli/resources/control/run.mjs`.
-2. Set `CLI_SHA256` in [build.mjs](build.mjs) to the sha256 of that version's npm tarball: `npm pack @trymuxr/cli@X.Y.Z && sha256sum trymuxr-cli-X.Y.Z.tgz`. Put the same version and sha256 in the release table under **Download and install**.
+2. Set `CLI_SHA256` in [build.mjs](build.mjs) to the sha256 of that version's npm tarball: `npm pack @trymuxr/cli@X.Y.Z && sha256sum trymuxr-cli-X.Y.Z.tgz`. Put the same version and sha256 in the release table under **Install**.
 3. Merge, then tag the merge commit `vX.Y.Z`. The **Update muxr** action installs the tag named after the npm version, so every published version needs its tag.
 
 `node --test build.test.mjs` checks the build without a network or a real release. To try an unreleased CLI in a lab, point the build at a locally packed tarball, which is still checked against a sha256 you supply:
