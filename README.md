@@ -17,12 +17,12 @@
 <p align="center">
   <picture>
     <source srcset="docs/assets/hero-night.webp" media="(prefers-color-scheme: dark)" />
-    <img src="docs/assets/hero-day.webp" alt="An agent running on the desktop and the same live workspace on the phone: the agent waiting for approval, its Little shop workspace, and its live terminal with the tab row and prompt box" width="880" />
+    <img src="docs/assets/hero-day.webp" alt="The Herdr desktop with its spaces sidebar and the Codex agent pane asking to approve a git push, beside the muxr phone showing that same live terminal and prompt" width="880" />
   </picture>
 </p>
 
 <p align="center">
-  <sub>An agent on the desktop, and the same live workspace in your pocket — one session, the same terminal.</sub>
+  <sub>Left: the Herdr desktop — the spaces sidebar and the agent pane where Codex asks to approve <code>git push</code>. Right: the muxr phone, on that same live terminal and prompt.</sub>
 </p>
 
 ## Why muxr in Herdr
