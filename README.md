@@ -16,13 +16,13 @@
 
 <p align="center">
   <picture>
-    <source srcset="docs/assets/hero-plugin-night.webp" media="(prefers-color-scheme: dark)" />
-    <img src="docs/assets/hero-plugin-day.webp" alt="The muxr Setup pane running inside Herdr: the muxr wordmark, 'Setup step 2 of 5', and the recommended phone-connection route" width="880" />
+    <source srcset="docs/assets/hero-night.webp" media="(prefers-color-scheme: dark)" />
+    <img src="docs/assets/hero-day.webp" alt="An agent running on the desktop and the same live workspace on the phone: the agent waiting for approval, its Little shop workspace, and its live terminal with the tab row and prompt box" width="880" />
   </picture>
 </p>
 
 <p align="center">
-  <sub>The <b>Setup</b> pane inside Herdr. It detects the machine, connects your phone and starts the service — and changes nothing until you choose <b>Apply setup</b>.</sub>
+  <sub>An agent on the desktop, and the same live workspace in your pocket — one session, the same terminal.</sub>
 </p>
 
 ## Why muxr in Herdr
@@ -48,6 +48,13 @@ herdr plugin install umeranjum17/muxr-herdr --ref v0.3.0
 ```bash
 herdr plugin pane open --plugin muxr.control --entrypoint setup
 ```
+
+<p align="center">
+  <picture>
+    <source srcset="docs/assets/hero-plugin-night.webp" media="(prefers-color-scheme: dark)" />
+    <img src="docs/assets/hero-plugin-day.webp" alt="The muxr Setup pane running inside Herdr: the muxr wordmark, 'Setup step 2 of 5', and the recommended phone-connection route" width="760" />
+  </picture>
+</p>
 
 It detects the machine, walks you through how your phone should reach it (Tailscale Serve is the recommended route), and starts the muxr service. Nothing changes until you choose **Apply setup**.
 
@@ -82,12 +89,12 @@ Always install a release tag. Each tag is one muxr release: the install download
 Once paired, your phone is the same workspace. Four captures from a demo machine, in order:
 
 <p align="center">
-  <img src="docs/assets/phone-pair.webp" alt="01 Pair once — the phone showing the two words diamond cliff to compare with the computer" width="250" />
-  <img src="docs/assets/phone-terminal.webp" alt="02 Check the real run — an agent's live terminal on the phone, with the tab row, key row and prompt box" width="250" />
+  <img src="docs/assets/phone-pair.webp" alt="01 Pair once — the phone showing the two words diamond cliff to compare with the computer" width="380" />
+  <img src="docs/assets/phone-terminal.webp" alt="02 Check the real run — an agent's live terminal on the phone, with the tab row, key row and prompt box" width="380" />
 </p>
 <p align="center">
-  <img src="docs/assets/phone-agent.webp" alt="03 Pick up the thread — prompting the agent from the phone like you're at the desk" width="250" />
-  <img src="docs/assets/phone-files.webp" alt="04 Look at the code — reading the code an agent is working on, from the phone" width="250" />
+  <img src="docs/assets/phone-agent.webp" alt="03 Pick up the thread — prompting the agent from the phone like you're at the desk" width="380" />
+  <img src="docs/assets/phone-files.webp" alt="04 Look at the code — reading the code an agent is working on, from the phone" width="380" />
 </p>
 
 ## What you get in Herdr
