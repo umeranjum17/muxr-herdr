@@ -29,6 +29,8 @@ lab pane wait-output "$pane" --match 'Choose 1-2' --timeout 30000 >/dev/null 2>&
 lab pane read "$pane" --source visible > "$out/setup-overlay-step1.txt"
 lab pane send-text "$pane" 2; lab pane send-keys "$pane" Enter; sleep 3
 lab pane read "$pane" --source visible > "$out/setup-overlay-other-ways.txt"
+lab pane read "$pane" --source visible --format ansi | sed 's/100\.[0-9]*\.[0-9]*\.[0-9]*/<tailnet-ip>/g' > "$scratch/other-ways.ansi"
+node "$(dirname "$0")/ansi2svg.mjs" "$scratch/other-ways.ansi" "$scratch/other-ways.svg" && rsvg-convert "$scratch/other-ways.svg" -o "$out/setup-overlay-other-ways.png"
 lab pane send-text "$pane" b; lab pane send-keys "$pane" Enter; sleep 2
 lab pane send-text "$pane" b; lab pane send-keys "$pane" Enter; sleep 3
 lab pane read "$pane" --source visible > "$out/setup-overlay-cancelled.txt"
