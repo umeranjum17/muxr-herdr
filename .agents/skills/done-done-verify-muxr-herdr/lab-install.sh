@@ -35,3 +35,6 @@ lab pane read "$pane" --source visible > "$out/setup-overlay-cancelled.txt"
 sed -i 's/100\.[0-9]*\.[0-9]*\.[0-9]*/<tailnet-ip>/g' "$out"/setup-overlay-*.txt
 jq -r '.result.plugins[] | "\(.plugin_id) \(.version) enabled=\(.enabled) \(.source.owner)/\(.source.repo)@\(.source.requested_ref)"' "$out/plugin-list.json" > "$out/plugin-summary.txt"
 cat "$out/plugin-summary.txt"
+jq -n --arg v "$version" '{target: {version: $v}, start: "a clean disposable Herdr 0.9.1 lab with an empty plugin registry",
+  steps: ["install muxr.control from the mirror at the release tag with the pinned CLI tarball", "read the plugin list", "open the real setup overlay, choose Other ways, and cancel without applying"],
+  result: "the plugin list shows muxr.control enabled from the mirror at the release tag, and the setup overlay lists the connection routes and cancels with Nothing changed"}' > "$out/steps.json"
