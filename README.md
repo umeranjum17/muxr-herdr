@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://herdr.dev/plugins/"><img alt="Herdr plugin" src="https://img.shields.io/badge/herdr-plugin-111?style=flat" /></a>
-  <a href="https://www.npmjs.com/package/@trymuxr/cli"><img alt="npm 0.3.0" src="https://img.shields.io/badge/npm-0.3.0-CB3837?style=flat&logo=npm&logoColor=white" /></a>
+  <a href="https://www.npmjs.com/package/@trymuxr/cli"><img alt="npm 0.2.14" src="https://img.shields.io/badge/npm-0.2.14-CB3837?style=flat&logo=npm&logoColor=white" /></a>
   <a href="https://github.com/umeranjum17/muxr-herdr/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/umeranjum17/muxr-herdr/ci.yml?style=flat&branch=main" /></a>
   <a href="LICENSE"><img alt="Apache 2.0" src="https://img.shields.io/badge/license-Apache--2.0-666?style=flat" /></a>
 </p>
@@ -40,7 +40,7 @@ Three steps on Linux or macOS. You need [Herdr](https://herdr.dev) 0.9.1 or newe
 **1. Install the plugin into Herdr**
 
 ```bash
-herdr plugin install umeranjum17/muxr-herdr --ref v0.3.0
+herdr plugin install umeranjum17/muxr-herdr --ref v0.2.14
 ```
 
 **2. Open the Setup pane**
@@ -70,8 +70,8 @@ Scan the one-use QR with the muxr app, or open the one-time link in a browser, t
 Only approve if the words match. Approve this device? (y/N) y
   ✓ paired and verified Browser
 
-  ok    muxr versions      CLI 0.3.0 · host 0.3.0
-        Herdr plugin 0.3.0 (umeranjum17/muxr-herdr@v0.3.0)
+  ok    muxr versions      CLI 0.2.14 · host 0.2.14
+        Herdr plugin 0.2.14 (umeranjum17/muxr-herdr@v0.2.14)
 ```
 
 Get the app from [trymuxr.com/downloads](https://trymuxr.com/downloads) (Android APK, Google Play testing, iOS TestFlight), or pair a browser for eight hours. Pair more devices later from the **Pair muxr** pane.
@@ -80,7 +80,7 @@ Get the app from [trymuxr.com/downloads](https://trymuxr.com/downloads) (Android
 
 | Release | Installs | CLI tarball sha256 |
 |---|---|---|
-| [`v0.3.0`](https://github.com/umeranjum17/muxr-herdr/releases) | [`@trymuxr/cli` 0.3.0](https://www.npmjs.com/package/@trymuxr/cli) | pinned at release |
+| `v0.2.14` | [`@trymuxr/cli` 0.2.14](https://www.npmjs.com/package/@trymuxr/cli) | `80f6a2da065f65da7996cf2b42b063817d286de343bb21a856d5769397c947cf` |
 
 Always install a release tag. Each tag is one muxr release: the install downloads `@trymuxr/cli` at exactly that version, checks it against the sha256 pinned in [build.mjs](build.mjs), and installs it into the plugin folder with install scripts turned off. Nothing is built from source, and a branch or bare commit is refused. Every release is listed on [the releases page](https://github.com/umeranjum17/muxr-herdr/releases); install the newest tag with `--ref`.
 
@@ -104,7 +104,7 @@ The plugin installs as `muxr.control`:
 <p align="center">
   <picture>
     <source srcset="docs/assets/plugin-list-night.webp" media="(prefers-color-scheme: dark)" />
-    <img src="docs/assets/plugin-list-day.webp" alt="herdr plugin list showing muxr.control enabled from github:umeranjum17/muxr-herdr@v0.3.0" width="760" />
+    <img src="docs/assets/plugin-list-day.webp" alt="herdr plugin list showing muxr.control enabled from github:umeranjum17/muxr-herdr at a release tag" width="760" />
   </picture>
 </p>
 
@@ -135,7 +135,7 @@ Both install the same plugin id, `muxr.control`, and a machine has one of them. 
 
 ```bash
 herdr plugin unlink muxr.control
-herdr plugin install umeranjum17/muxr-herdr --ref v0.3.0
+herdr plugin install umeranjum17/muxr-herdr --ref v0.2.14
 ```
 
 The npm install ([`@trymuxr/cli`](https://www.npmjs.com/package/@trymuxr/cli)) stays the way to run muxr without Herdr's plugin system, on a VPS relay, or in Docker. See the [muxr README](https://github.com/umeranjum17/muxr#install).
@@ -144,7 +144,7 @@ The npm install ([`@trymuxr/cli`](https://www.npmjs.com/package/@trymuxr/cli)) s
 
 A muxr release that should reach Herdr needs a matching tag here:
 
-1. Set `version` in [herdr-plugin.toml](herdr-plugin.toml) to the published `@trymuxr/cli` version, and copy any changed actions and panes from muxr's `resources/control/herdr-plugin.toml`, pointing them at `./node_modules/@trymuxr/cli/resources/control/run.mjs`.
+1. Set `version` in [herdr-plugin.toml](herdr-plugin.toml) to the published `@trymuxr/cli` version, and regenerate the manifest with the canonical generator shipped in that release: `node <unpacked CLI>/resources/control/check-copy.mjs --write .`. CI runs the same script without `--write` against the pinned release and fails on any difference.
 2. Set `CLI_SHA256` in [build.mjs](build.mjs) to the sha256 of that version's npm tarball: `npm pack @trymuxr/cli@X.Y.Z && sha256sum trymuxr-cli-X.Y.Z.tgz`. Put the same version and sha256 in the release table under **Install**.
 3. Merge, then tag the merge commit `vX.Y.Z`. The **Update muxr** action installs the tag named after the npm version, so every published version needs its tag.
 

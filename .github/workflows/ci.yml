@@ -26,3 +26,11 @@ jobs:
         with:
           node-version: 22
       - run: node --test build.test.mjs
+      - name: Manifest matches the pinned CLI's canonical generator
+        run: |
+          version=$(sed -n 's/^version = "\(.*\)"$/\1/p' herdr-plugin.toml)
+          sha=$(sed -n "s/^const CLI_SHA256 = '\(.*\)';$/\1/p" build.mjs)
+          curl -fsSL -o cli.tgz "https://github.com/umeranjum17/muxr/releases/download/v${version}/trymuxr-cli-${version}.tgz"
+          echo "${sha}  cli.tgz" | sha256sum -c -
+          mkdir "${RUNNER_TEMP}/cli" && tar -xzf cli.tgz -C "${RUNNER_TEMP}/cli"
+          node "${RUNNER_TEMP}/cli/package/resources/control/check-copy.mjs" .

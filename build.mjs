@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 
 // sha256 of the npm tarball of @trymuxr/cli at this manifest's `version`.
 // A release bumps `version` in herdr-plugin.toml, sets this, then tags vX.Y.Z.
-const CLI_SHA256 = '';
+const CLI_SHA256 = '80f6a2da065f65da7996cf2b42b063817d286de343bb21a856d5769397c947cf';
 
 const root = dirname(fileURLToPath(import.meta.url));
 const fail = (message) => {

@@ -1,19 +1,18 @@
-# muxr in Herdr: herdr plugin install umeranjum17/muxr-herdr --ref vX.Y.Z
-#
-# A launcher only. Every action and pane runs one bounded `muxr` command from
-# the installed @trymuxr/cli; the host and relay run under muxr.service
-# (launchd on macOS) through `muxr up`, so nothing here outlives a command.
-# The actions and panes mirror resources/control in umeranjum17/muxr.
+# Product-owned Herdr pack: muxr's launcher inside Herdr. It only drives the
+# muxr CLI; the host and relay always run under muxr.service/launchd through
+# `muxr up`, so nothing here outlives a command. `muxr setup` links it from
+# the installed package, or `herdr plugin install` fetches it from GitHub
+# (then Herdr owns it and setup leaves it alone).
 id = "muxr.control"
 name = "muxr"
-# Always the @trymuxr/cli release this tag installs (see build.mjs).
-version = "0.3.0"
+# Versioned with muxr itself: bump when a release changes the pack; setup
+# relinks whenever the version or path moves.
+version = "0.2.14"
 min_herdr_version = "0.9.1"
 description = "Set up and pair muxr from Herdr, and drive Herdr layout from your phone"
 platforms = ["linux", "macos"]
 
-# Downloads the tagged @trymuxr/cli release, checks its sha256 and installs it
-# here with install scripts off. Nothing is built from source.
+# A GitHub install gets a git tree with no bundles: fetch the release's CLI.
 [[build]]
 command = ["node", "./build.mjs"]
 
