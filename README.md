@@ -7,6 +7,7 @@
   <a href="https://www.npmjs.com/package/@trymuxr/cli"><img alt="npm 0.2.14" src="https://img.shields.io/badge/npm-0.2.14-CB3837?style=flat&logo=npm&logoColor=white" /></a>
   <a href="https://github.com/umeranjum17/muxr-herdr/actions/workflows/ci.yml"><img alt="CI" src="https://img.shields.io/github/actions/workflow/status/umeranjum17/muxr-herdr/ci.yml?style=flat&branch=main" /></a>
   <a href="LICENSE"><img alt="Apache 2.0" src="https://img.shields.io/badge/license-Apache--2.0-666?style=flat" /></a>
+  <a href="https://x.com/umership"><img alt="X @umership" src="https://img.shields.io/badge/X-@umership-000?style=flat&logo=x&logoColor=white" /></a>
 </p>
 
 <p align="center">
